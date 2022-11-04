@@ -38,7 +38,7 @@ test:
     - pip check
 
 about:
-  home: https://github.com/maxcountryman/flask-bcrypt
+  home: https://flask-bcrypt.readthedocs.io/en/1.0.1/
   license: BSD 3-Clause
   license_file: LICENSE
   license_family: BSD
