@@ -3,7 +3,7 @@
 {% set bundle = "tar.gz" %}
 {% set version = "1.0.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "f07b66b811417ea64eb188ae6455b0b708a793d966e1a80ceec4a23bc42a4369" %}
+{% set hash_val = "7395f94cac12e7eca669c2a10770d351550dfa28557e272060305893f4fb8916" %}
 
 package:
   name: {{ name }}
@@ -41,11 +41,12 @@ test:
 
 about:
   home: https://flask-bcrypt.readthedocs.io/en/1.0.1/
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
   license_url: https://github.com/maxcountryman/flask-bcrypt/blob/{{ version }}/LICENSE
   summary: 'Bcrypt hashing for Flask.'
+  description: 'Flask-Bcrypt is a Flask extension that provides bcrypt hashing utilities for your application.'
   dev_url: https://github.com/maxcountryman/flask-bcrypt
   doc_url: https://flask-bcrypt.readthedocs.io/en/latest/
   doc_source_url: https://github.com/maxcountryman/flask-bcrypt/tree/{{ version }}/docs
