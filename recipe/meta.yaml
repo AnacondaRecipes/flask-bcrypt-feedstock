@@ -1,9 +1,9 @@
 {% set name = "flask-bcrypt" %}
 {% set camelName = "Flask-Bcrypt" %}
 {% set bundle = "tar.gz" %}
-{% set version = "0.7.1" %}
+{% set version = "1.0.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "d71c8585b2ee1c62024392ebdbc447438564e2c8c02b4e57b56a4cafd8d13c5f" %}
+{% set hash_val = "f07b66b811417ea64eb188ae6455b0b708a793d966e1a80ceec4a23bc42a4369" %}
 
 package:
   name: {{ name }}
