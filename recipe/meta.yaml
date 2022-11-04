@@ -27,11 +27,15 @@ requirements:
   run:
     - python
     - flask
-    - bcrypt
+    - bcrypt >=3.1.1
 
 test:
   imports:
     - flask_bcrypt
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/maxcountryman/flask-bcrypt
