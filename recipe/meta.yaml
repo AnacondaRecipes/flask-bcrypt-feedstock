@@ -40,12 +40,12 @@ test:
     - pip check
 
 about:
-  home: https://flask-bcrypt.readthedocs.io/en/1.0.1/
+  home: https://github.com/maxcountryman/flask-bcrypt
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
-  summary: 'Bcrypt hashing for Flask.'
-  description: 'Flask-Bcrypt is a Flask extension that provides bcrypt hashing utilities for your application.'
+  summary: Bcrypt hashing for Flask.
+  description: Flask-Bcrypt is a Flask extension that provides bcrypt hashing utilities for your application.
   dev_url: https://github.com/maxcountryman/flask-bcrypt
   doc_url: https://flask-bcrypt.readthedocs.io/en/latest/
 
