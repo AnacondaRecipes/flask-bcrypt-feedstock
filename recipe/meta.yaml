@@ -20,7 +20,7 @@ build:
   skip: True  # [py<37]
 
 requirements:
-  host:
+  build:
     - python
     - pip
     - setuptools
