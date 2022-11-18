@@ -38,6 +38,8 @@ test:
     - flask_bcrypt
   requires:
     - pip
+    - python  # [py==38]
+    - python 3.8.13  # [py!=38]
   commands:
     - pip check
 
