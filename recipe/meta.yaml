@@ -17,19 +17,17 @@ source:
 build:
   number: 0
   script: python -m pip install --no-deps --ignore-installed .
-  skip: True  # [py<37]
+  skip: True  # [py<37 and py>38]
 
 requirements:
-  build:
-    - python  # [py==38]
-    - python 3.8.13  # [py!=38]
+  host:
+    - python 3.8.13
     - pip
     - setuptools
     - wheel
 
   run:
-    - python  # [py==38]
-    - python 3.8.13  # [py!=38]
+    - python 3.8.13
     - flask
     - bcrypt >=3.1.1
 
@@ -38,8 +36,6 @@ test:
     - flask_bcrypt
   requires:
     - pip
-    - python  # [py==38]
-    - python 3.8.13  # [py!=38]
   commands:
     - pip check
 
