@@ -1,23 +1,20 @@
 {% set name = "flask-bcrypt" %}
 {% set camelName = "Flask-Bcrypt" %}
-{% set bundle = "tar.gz" %}
 {% set version = "1.0.1" %}
-{% set hash_type = "sha256" %}
-{% set hash_val = "f07b66b811417ea64eb188ae6455b0b708a793d966e1a80ceec4a23bc42a4369" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ camelName }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash_val }}
+  - url: https://github.com/maxcountryman/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+    sha256: db07a56750cbde187920d8c55fa8a806ba24211d9eb14399fc17bac83262ff57
 
 build:
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
-  skip: True  # [py<37]
+  number: 1
+  script: python -m pip install --no-deps --no-build-isolation --ignore-installed . -vv
+  # bcrypt >=5.0.0 with python 3.14 support isn't compatible with this package.
+  skip: True  # [py<37 or py>313]
 
 requirements:
   host:
@@ -29,15 +26,22 @@ requirements:
   run:
     - python
     - flask
-    - bcrypt >=3.1.1
+    # bcrypt >=5.0.0 is not supported by this package:
+    # ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+    # see https://github.com/maxcountryman/flask-bcrypt/issues/95
+    - bcrypt >=3.1.1,<5.0.0
 
 test:
   imports:
     - flask_bcrypt
+  source_files:
+    - test_bcrypt.py
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest test_bcrypt.py -v
 
 about:
   home: https://github.com/maxcountryman/flask-bcrypt
@@ -47,7 +51,7 @@ about:
   summary: Bcrypt hashing for Flask.
   description: Flask-Bcrypt is a Flask extension that provides bcrypt hashing utilities for your application.
   dev_url: https://github.com/maxcountryman/flask-bcrypt
-  doc_url: https://flask-bcrypt.readthedocs.io/en/latest/
+  doc_url: https://flask-bcrypt.readthedocs.io
 
 extra:
   recipe-maintainers:
