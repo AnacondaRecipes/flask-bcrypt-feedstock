@@ -7,11 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ camelName }}-{{ version }}.tar.gz
-    sha256: f07b66b811417ea64eb188ae6455b0b708a793d966e1a80ceec4a23bc42a4369
   - url: https://github.com/maxcountryman/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
     sha256: db07a56750cbde187920d8c55fa8a806ba24211d9eb14399fc17bac83262ff57
-    folder: gh
 
 build:
   number: 1
@@ -38,13 +35,13 @@ test:
   imports:
     - flask_bcrypt
   source_files:
-    - gh/test_bcrypt.py
+    - test_bcrypt.py
   requires:
     - pip
     - pytest
   commands:
     - pip check
-    - pytest gh/test_bcrypt.py -v
+    - pytest test_bcrypt.py -v
 
 about:
   home: https://github.com/maxcountryman/flask-bcrypt
