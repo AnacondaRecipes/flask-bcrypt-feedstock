@@ -31,6 +31,7 @@ requirements:
     - flask
     # bcrypt >=5.0.0 is not supported by this package:
     # ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+    # see https://github.com/maxcountryman/flask-bcrypt/issues/95
     - bcrypt >=3.1.1,<5.0.0
 
 test:
